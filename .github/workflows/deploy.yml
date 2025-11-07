@@ -1,0 +1,48 @@
+name: Hexo Auto Deploy to GitHub Pages
+
+# 触发条件：main分支有push时自动执行
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取源码
+      - name: Checkout Source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 安装Node.js（和你本地/服务器一致：20.19.0）
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+          cache: 'npm'
+
+      # 安装依赖
+      - name: Install Dependencies
+        run: |
+          npm install -g hexo-cli
+          npm install
+
+      # 构建静态文件
+      - name: Generate Static Files
+        run: hexo clean && hexo generate
+
+      # 部署到Pages仓库
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # 关键1：替换成你的Pages仓库SSH地址（比如 git@github.com:xxx/xxx.github.io.git）
+          repo: git@github.com:yating1022/yating1022.github.io.git
+          # 关键2：使用之前配置的Secrets（名称必须和你之前填的一致：HEXO_DEPLOY_TOKEN）
+          deploy_key: ${{ secrets.HEXO_DEPLOY_TOKEN }}
+          # 关键3：Pages仓库的分支（之前是main就填main，是gh-pages就填gh-pages）
+          branch: main
+          # 部署的文件目录（固定为public）
+          publish_dir: ./public
+          # 自动部署的提交信息
+          commit_message: 'Auto deploy: ${{ github.sha }}'
