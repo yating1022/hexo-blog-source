@@ -106,5 +106,5 @@ deploy:
   repo: git@github.com:yating1022/yating1022.github.io.git
   branch: main
 marked:
-  #prependRoot: true 
-  postAsset: true
+  prependRoot: true 
+  #postAsset: true
