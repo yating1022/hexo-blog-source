@@ -13,8 +13,8 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: .
-root: .
+url: https://yating1022.github.io
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -105,3 +105,9 @@ deploy:
   type: git
   repo: git@github.com:yating1022/yating1022.github.io.git
   branch: main
+# Markdown 渲染器配置（核心！保留文章资源文件夹+正确相对路径）
+marked:
+  prependRoot: false  # 禁止添加绝对路径前缀（杜绝 .io 残留）
+  postAsset: true     # 关键！关联文章资源文件夹，自动生成 ./图片名.png
+  breaks: true
+  gfm: true
