@@ -49,7 +49,7 @@ menu:
 card:
     enable: true
     description: |
-        Description
+        欢迎来到我的博客~
         ...
     iconLinks:
     friendLinks:
