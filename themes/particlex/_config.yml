@@ -53,7 +53,7 @@ card:
         ...
     iconLinks:
     friendLinks:
-        Argvchs: https://argvchs.github.io
+        Fruits: https://blog.bjyt.de
 
 # Footer info
 footer:
@@ -113,13 +113,13 @@ giscus:
 # Gitalk
 # https://github.com/gitalk/gitalk
 gitalk:
-    enable: false
-    clientID: # Default ClientID
-    clientSecret: # Default ClientSecret
-    repo: # The name of repository of store comments
-    owner: # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize github issues
-    language: # en, zh-CN, zh-TW, es-ES, fr, ru, de, pl and ko are currently available
+    enable: true
+    clientID: Ov23litWytw5a9YYfjpn
+    clientSecret: 263220185a44717917fc30ea10b93f2aab160f54
+    repo: https://github.com/yating1022/comments.git
+    owner: yating1022
+    admin: yating1022
+    language:  en, zh-CN, zh-TW, es-ES, fr, ru, de
     proxy: # CORS proxy
 
 # Waline
