@@ -119,8 +119,8 @@ gitalk:
     repo: comments
     owner: yating1022
     admin: yating1022
-    language:  en, zh-CN, zh-TW, es-ES, fr, ru, de
-    proxy: # CORS proxy
+    language: en, zh-CN, zh-TW, es-ES, fr, ru, de
+    proxy: CORS proxy
 
 # Waline
 # https://github.com/walinejs/waline
